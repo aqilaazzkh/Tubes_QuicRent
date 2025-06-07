@@ -1,0 +1,1471 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+.navbar {
+    background-color: #2C3E50;
+    padding: 1rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    font-size: 1.25rem;
+}
+
+.navbar .logo h1 {
+    color: #fff;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.navbar .logo span {
+    color: #3498db;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    font-size: 1.15rem;
+}
+
+.navbar .nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+    font-size: 1.15rem;
+}
+
+.navbar .nav-links li a:hover {
+    color: #3498db;
+}
+
+/* Gaya khusus untuk tombol Masuk dan Daftar */
+.navbar .auth-link {
+    background-color: #fff;
+    color: #2C3E50;
+    padding: 0.5rem 1.5rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 1.15rem;
+    transition: background-color 0.3s, color 0.3s;
+    display: inline-block;
+    text-align: center;
+}
+
+.navbar .auth-link:hover {
+    background-color: #3498db;
+    color: #fff;
+}
+
+
+
+/* HERO SECTION BARU */
+.hero {
+    position: relative;
+    background: url('../images/kendaraan1.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 5%;
+}
+
+/* Overlay tambahan agar tulisan tetap terbaca */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+    max-width: 900px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 1.2rem;
+    /* Sesuaikan ukuran agar tidak terlalu besar */
+    font-weight: 700;
+    /* Kurangi ketebalan agar lebih elegan */
+    line-height: 1.5;
+    /* Sesuaikan jarak antar baris */
+    text-align: center;
+    /* Pastikan tetap rata tengah */
+    max-width: 750px;
+    /* Batasi lebar teks agar tidak terlalu melebar */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    /* Efek shadow */
+}
+
+/* FILTER BOX BARU */
+.filter-box {
+    background: rgba(255, 255, 255, 0.7);
+    /* Putih dengan 70% opacity */
+    backdrop-filter: blur(10px);
+    /* Efek blur agar tetap elegan */
+    border-radius: 15px;
+    /* Agar sudutnya membulat */
+    padding: 20px;
+}
+
+/* Tab pilihan Rental Mobil / Motor */
+.filter-tabs {
+    display: flex;
+    justify-content: left;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.filter-tabs button {
+    background: transparent;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease-in-out;
+    color: #ffffff;
+    /* Warna teks default */
+    position: relative;
+}
+
+.filter-tabs button::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: #2c3e50;
+    /* Warna garis bawah */
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
+}
+
+.filter-tabs button:hover::after {
+    width: 100%;
+}
+
+.filter-tabs button:hover {
+    color: #2c3e50;
+    /* Warna teks lebih gelap */
+}
+
+/* Dropdown filter */
+.filter-options {
+    display: flex;
+    /* Menggunakan flexbox untuk menampilkan elemen dalam satu baris */
+    gap: 10px;
+    /* Jarak antar elemen */
+    flex-wrap: nowrap;
+    /* Mencegah elemen membungkus ke baris berikutnya */
+    justify-content: center;
+    /* Menyelaraskan elemen di tengah */
+    margin-bottom: 15px;
+}
+
+.filter-options label {
+    margin-right: 5px;
+    /* Jarak antara label dan dropdown */
+    font-weight: bold;
+    /* Menebalkan teks label */
+}
+
+.filter-options select {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+}
+
+/* TOMBOL CARI SEKARANG */
+.search-button {
+    background-color: #cfe1f4;
+    color: #2c3e50;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 4px 6px rgba(255, 255, 255, 0.6),
+        0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-button:hover {
+    background-color: #b0d0e8;
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.2),
+        0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.search-section {
+    padding: 5rem 5%;
+    background-color: #2c3e50;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #ffffff;
+}
+
+/* Warna judul hanya untuk Kendaraan Populer */
+.kendaraan-populer .section-title h2 {
+    color: white;
+    /* Sesuaikan dengan warna latar biru */
+}
+
+/* Warna judul untuk Testimoni tetap hitam */
+.reviews-section .section-title h2 {
+    color: black;
+    /* Sesuaikan dengan desain yang diinginkan */
+}
+
+.reviews-section {
+    padding: 5rem 5%;
+    background-color: #ffffff;
+}
+
+.reviews-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.body1 {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.hero-section {
+    position: relative;
+    height: 100vh;
+    padding-top: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('assets/img/gambar200.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(0.5);
+    opacity: 0.7;
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #2e94a4;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.5rem 1.75rem;
+    border: 2px solid white;
+    border-radius: 0.375rem;
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.cta-button:hover {
+    background-color: #46e6ff;
+}
+
+.produk-section {
+    padding: 1rem 1rem 8rem;
+}
+
+.produk-header {
+    text-align: center;
+}
+
+.produk-title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.produk-subtitle {
+    margin-top: 0.5rem;
+}
+
+.kategori-menu {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.kategori-item {
+    padding: 0.5rem 1.5rem;
+    border: 2px solid #2e94a4;
+    border-radius: 9999px;
+    font-weight: bold;
+    color: #1e6e7a;
+    text-decoration: none;
+}
+
+.kategori-item.active {
+    background-color: #46e6ff;
+}
+
+.produk-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 2rem auto 0;
+}
+
+.container {
+    width: 1539px;
+    height: 876px;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+}
+
+.background {
+    width: 1580px;
+    height: 876px;
+    position: absolute;
+    background: white;
+    left: 100;
+    top: 0;
+}
+
+.top-section {
+    width: 1440px;
+    height: 554px;
+    position: absolute;
+    background: white;
+    left: 0;
+    top: 0;
+}
+
+.title {
+    width: 573px;
+    height: 72px;
+    position: absolute;
+    top: 46px;
+    left: 39px;
+    color: black;
+    font-size: 24px;
+    font-weight: 600;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.sub-title {
+    width: 327px;
+    height: 36px;
+    position: absolute;
+    top: 649px;
+    left: 556px;
+    color: black;
+    font-size: 24px;
+    font-weight: 600;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.description {
+    width: 831px;
+    height: 457px;
+    position: absolute;
+    top: 144px;
+    left: 39px;
+    text-align: justify;
+    font-size: 20px;
+}
+
+.description .text {
+    color: #2C3E50;
+    font-weight: 400;
+}
+
+.highlight-blue {
+    color: #2D4059;
+    font-weight: 700;
+}
+
+.highlight-dark {
+    color: #2C3E50;
+    font-weight: 700;
+}
+
+.img-1 {
+    width: 183px;
+    height: 122px;
+    position: absolute;
+    left: 912px;
+    top: 164px;
+}
+
+.img-2 {
+    width: 183px;
+    height: 122px;
+    position: absolute;
+    left: 364px;
+    top: 717px;
+}
+
+.img-3 {
+    width: 183px;
+    height: 122px;
+    position: absolute;
+    left: 564px;
+    top: 728px;
+}
+
+.img-4 {
+    width: 183px;
+    height: 122px;
+    position: absolute;
+    left: 178px;
+    top: 720px;
+}
+
+.img-5 {
+    width: 183px;
+    height: 122px;
+    position: absolute;
+    left: 978px;
+    top: 685px;
+}
+
+.img-6 {
+    width: 183px;
+    height: 122px;
+    position: absolute;
+    left: 845px;
+    top: 720px;
+}
+
+
+.produk-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.produk-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.produk-info {
+    padding: 1rem;
+}
+
+.produk-nama {
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.produk-deskripsi {
+    font-size: 0.875rem;
+    color: #666;
+    margin-top: 0.5rem;
+}
+
+.produk-harga {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #0891b2;
+    margin-top: 1rem;
+}
+
+.produk-empty {
+    grid-column: span 3;
+    text-align: center;
+}
+
+
+.testimonial-card {
+    background: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-name {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #2d3748;
+    margin-bottom: 10px;
+}
+
+.rating {
+    margin-bottom: 10px;
+}
+
+.star {
+    font-size: 1.5rem;
+    color: #ddd;
+}
+
+.star.filled {
+    color: #FFD700;
+    /* Warna bintang terisi */
+}
+
+.star.half-filled {
+    color: #FFD700;
+    /* Warna bintang setengah terisi */
+}
+
+.star.empty {
+    color: #ddd;
+    /* Warna bintang kosong */
+}
+
+.testimonial-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: #4a5568;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.testimonial-date {
+    font-size: 0.85rem;
+    color: #a0aec0;
+    text-align: right;
+}
+
+.review-form {
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.review-form h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+}
+
+.rating-input {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    margin: 1.5rem 0;
+}
+
+.rating-input input {
+    display: none;
+}
+
+.rating-input label {
+    cursor: pointer;
+    font-size: 2.5rem;
+    color: #ddd;
+    margin: 0 0.2rem;
+    transition: color 0.3s;
+}
+
+.rating-input label:hover,
+.rating-input label:hover~label,
+.rating-input input:checked~label {
+    color: #f1c40f;
+}
+
+.form-submit {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #2C3E50;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-submit:hover {
+    background-color: #c0392b;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+}
+
+.section-title h2:after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    background: #2C3E50;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.search-form select,
+.search-form input {
+    padding: 1rem;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.search-form select:focus,
+.search-form input:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.search-form button {
+    padding: 1rem;
+    background-color: #2C3E50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.search-form button:hover {
+    background-color: #cfe1f4;
+    color: #333;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    /* Inner shadow */
+}
+
+.section-title h2 {
+    /* Styling judul "Kendaraan Populer 🔥" */
+    font-size: 2rem;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+    margin-bottom: 2rem;
+}
+
+.vehicle-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.vehicle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.vehicle-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s;
+}
+
+.vehicle-card:hover {
+    transform: translateY(-5px);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.auth-section:target .auth-content {
+    animation: fadeInUp 0.5s;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    z-index: 1000;
+}
+
+.popup button {
+    margin-top: 10px;
+}
+
+
+
+
+.rating {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+}
+
+.star {
+    color: #ddd;
+    font-size: 1.1rem;
+}
+
+.star.filled {
+    color: #FFD700;
+}
+
+.star.half-filled {
+    position: relative;
+    display: inline-block;
+    color: #FFD700;
+}
+
+.review-count {
+    color: #666;
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+}
+
+.vehicle-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+}
+
+.vehicle-info {
+    padding: 1.5rem;
+}
+
+.vehicle-info h3 {
+    color: #2c3e50;
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.vehicle-info hr {
+    /* Garis pemisah baru */
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 0.8rem 0;
+}
+
+.price {
+    color: #000;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: baseline;
+}
+
+.per-day {
+    font-size: 0.85rem;
+    color: #666;
+    font-weight: normal;
+    margin-left: 0.3rem;
+}
+
+.about-section {
+    color: black;
+    text-align: left;
+    padding: 20px 0;
+    margin: 30px auto;
+    /* Agar bagian ini lebih ke tengah */
+    max-width: 900px;
+    /* Batas lebar agar tidak terlalu melebar */
+    background: transparent;
+}
+
+.about-section h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    /* Jarak antara judul dan paragraf */
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.about-section p {
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.hero {
+    margin-bottom: 30px;
+    /* Beri jarak antara hero section dan deskripsi */
+}
+
+.form-pemesanan {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.form-container {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+}
+
+.form-container h2 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    font-weight: bold;
+    font-size: 14px;
+    color: #555;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-field {
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+.input-field i {
+    margin-right: 10px;
+    color: #888;
+}
+
+.input-field input {
+    width: 100%;
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+    background-color: #2c3e50;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.submit-btn i {
+    margin-right: 5px;
+}
+
+.submit-btn:hover {
+    background-color: #2c3e50;
+    transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+    .form-container {
+        width: 95%;
+    }
+}
+
+/* TOMBOL SEWA SEKARANG - VERSI BARU */
+.sewa-sekarang {
+    display: inline-block;
+    background: linear-gradient(135deg, #2C3E50 0%, #4CA1AF 100%);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.sewa-sekarang:hover {
+    background: linear-gradient(135deg, #4CA1AF 0%, #2C3E50 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.sewa-sekarang:active {
+    transform: translateY(1px);
+}
+
+.sewa-sekarang .arrow {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.sewa-sekarang:hover .arrow {
+    transform: translateX(4px);
+}
+
+/* Efek ripple saat diklik */
+.sewa-sekarang::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+.sewa-sekarang:focus:not(:active)::after {
+    animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(20, 20);
+        opacity: 0;
+    }
+}
+
+/* Reviews Section */
+.reviews-section {
+    padding: 5rem 5%;
+    background-color: #ffffff;
+}
+
+.reviews-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.rating {
+    color: #f1c40f;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.review-text {
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.reviewer {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.reviewer span {
+    font-weight: normal;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.review-form {
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.review-form h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+}
+
+.rating-input {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    margin: 1.5rem 0;
+}
+
+.rating-input input {
+    display: none;
+}
+
+.rating-input label {
+    cursor: pointer;
+    font-size: 2.5rem;
+    color: #ddd;
+    margin: 0 0.2rem;
+    transition: color 0.3s;
+}
+
+.rating-input label:hover,
+.rating-input label:hover~label,
+.rating-input input:checked~label {
+    color: #f1c40f;
+}
+
+/* Footer */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 40px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-section h3 {
+    font-size: 1.5rem;
+    position: bold;
+    padding-bottom: 10px;
+}
+
+.footer-section h4 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.footer-section p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.social-icons img {
+    width: 30px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.footer-map {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 5px;
+}
+
+.footer-section {
+    width: 30%;
+    min-width: 250px;
+}
+
+.footer-section h3:after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background: #ffffff;
+    bottom: 0;
+    left: 0;
+}
+
+.footer-section p {
+    margin-bottom: 0.8rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #e74c3c;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9rem;
+    background-color: #1A252F;
+    margin-top: 20px;
+}
+
+.social-icons a img {
+    width: 30px;
+    /* Sesuaikan ukuran ikon */
+    margin: 0 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-icons a:hover img {
+    transform: scale(1.1);
+    /* Efek zoom saat hover */
+}
+
+/* Auth Modals */
+.auth-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-section:target {
+    opacity: 1;
+    visibility: visible;
+}
+
+.auth-container {
+    width: 90%;
+    max-width: 500px;
+    margin: 2rem;
+}
+
+.auth-content {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #888;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.close-button:hover {
+    color: #e74c3c;
+}
+
+.auth-form h2 {
+    margin-bottom: 1.8rem;
+    color: #2c3e50;
+    text-align: center;
+    font-weight: 700;
+}
+
+.auth-button {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1.5rem;
+    background-color: #2C3E50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.auth-button:hover {
+    background-color: #c0392b;
+}
+
+.remember-me,
+.terms {
+    display: flex;
+    align-items: center;
+    margin: 1.2rem 0;
+}
+
+.remember-me input,
+.terms input {
+    margin-right: 0.8rem;
+    width: auto;
+}
+
+.switch-form {
+    text-align: center;
+    margin-top: 1.8rem;
+    color: #666;
+}
+
+.switch-form a,
+.forgot-password a,
+.terms a {
+    color: #2C3E50;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.switch-form a:hover,
+.forgot-password a:hover,
+.terms a:hover {
+    text-decoration: underline;
+}
+
+.forgot-password {
+    text-align: center;
+    margin-top: 1.2rem;
+    font-size: 0.9rem;
+}
+
+.nav-links .auth-link {
+    background-color: #ffffff;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    color: #2C3E50;
+    transition: background-color 0.3s;
+}
+
+.nav-links .auth-link:hover {
+    background-color: #2C3E50;
+}
+
+.nav-links .auth-link:after {
+    display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .nav-links {
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links li {
+        margin: 0.5rem;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .booking-container {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title h2 {
+        font-size: 2rem;
+    }
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.popup:target {
+    display: flex;
+}
+
+.popup-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    text-decoration: none;
+    font-size: 30px;
+    color: #333;
+}
+
+.close-btn:hover {
+    color: #e74c3c;
+}
+
+.team-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.team-btn {
+    background-color: #4CA1AF;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.team-btn:hover {
+    background-color: #2C3E50;
+}
+
+
+
+/* css urip */
+.custom-text {
+    padding-left: 3rem;
+    /* Geser teks ke kiri */
+}
+
+.custom-image {
+    transform: scale(1.0);
+    /* Perbesar gambar */
+    margin-right: -40px;
+    /* Geser gambar ke kanan */
+}
+
+@media (max-width: 768px) {
+    .custom-text {
+        padding-left: 1rem;
+        /* Responsif di mobile */
+    }
+
+    .custom-image {
+        margin-right: 0;
+        transform: scale(1);
+        /* Normal di layar kecil */
+    }
+}
+
+.footer-custom {
+    background-color: rgba(45, 64, 89);
+}
+
